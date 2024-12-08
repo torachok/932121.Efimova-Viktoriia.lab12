@@ -1,0 +1,38 @@
+﻿@{
+    if (ViewBag.Result == null)
+    {
+        ViewData["Title"] = "ManualWithSeparateHandlers";
+    }
+    else
+    {
+        ViewData["Title"] = "Result";
+    }
+}
+
+@if (ViewBag.Result == null)
+{
+    <h1>ManualWithSeparateHandlers</h1>
+
+    <form asp-action="ManualWithSeparateHandlers" method="post">
+        <div>
+            <input type="number" id="number1" name="number1" required />
+        </div>
+        <div>
+            <select id="operation" name="operation" required>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <div>
+            <input type="number" id="number2" name="number2" required />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+}
+else
+{
+    <h1>Result</h1>
+    <h3>@ViewBag.OperationDetails @ViewBag.Result</h3>
+}
